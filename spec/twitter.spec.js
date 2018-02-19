@@ -1,23 +1,28 @@
 const HomePage = require('../twitter_example/memberArea/cms/HomePage');
-const HomePage = require('../twitter_example/memberArea/ap/ProfilePersonalInfoPage');
+const ProfilePersonalInfoPage = require('../twitter_example/memberArea/ap/ProfilePersonalInfoPage');
 const testData = require('../twitter_example/test.data');
 
-describe('Dashboard page.', () => {
-  let homePage;
+// describe('Dashboard page.', () => {
+//   let homePage;
 
-  beforeAll(() => homePage = HomePage.visit());
+//   beforeAll(() => homePage = HomePage.visit());
 
-  it(`[C3090999] User's first and last name are displayed on the page.`, () => {
-    const dashboardPage = homePage.signIn(testData.username, testData.password);
+//   it(`[C3090999] User's first and last name are displayed on the page.`, () => {
+//     const dashboardPage = homePage.signIn(testData.username, testData.password);
 
-    expect(dashboardPage.getWelcomeMessage())
-      .toBe(`Welcome ${testData.firstName} ${testData.lastName}`);
-  });
+//     expect(dashboardPage.getWelcomeMessage())
+//       .toBe(`Welcome ${testData.firstName} ${testData.lastName}`);
+//   });
+// });
+
+describe('Twitter account.', () => {  
+
+  beforeAll(() => HomePage.visit().signIn(testData.username, testData.password));
 
   it(`[3474572] Link twitter account.`, () => {
-    const dashboardPage = homePage.signIn(testData.username, testData.password);
+    const profilePersonalInfoPage = ProfilePersonalInfoPage.visit();
 
-    expect(dashboardPage.getWelcomeMessage())
-      .toBe(`Welcome ${testData.firstName} ${testData.lastName}`);
+    expect(profilePersonalInfoPage.twitterHandleIsAdded())
+      .toBeFalsy('Seems twitter account already added');
   });
 });
