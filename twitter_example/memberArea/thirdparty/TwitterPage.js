@@ -14,14 +14,14 @@ class TwitterPage {
     console.log(`${this._pageName} page is displayed`);
   }
 
-  autorizeSDK(email, password) {    
+  autorizeSDK(email, password, validUser) {    
     fillTextField(email, this._emailField);
     fillTextField(password, this._passwordField);
     clickElement(this._autorizeAppButton);  
     
     const ProfilePersonalInfoPage = require('../ap/ProfilePersonalInfoPage');
     const profilePersonalInfoPage = new ProfilePersonalInfoPage();
-    profilePersonalInfoPage.changePageDataToTwitterAdded();    
+    profilePersonalInfoPage.changePageDataToTwitterAdded(validUser);    
     return profilePersonalInfoPage;
   }
 

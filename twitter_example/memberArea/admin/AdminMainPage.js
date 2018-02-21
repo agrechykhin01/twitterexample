@@ -5,8 +5,7 @@ const AdminLeftMenu = require('../partials/AdminLeftMenu');
 class AdminMainPage extends AdminBasePage{
     constructor() {
         super();
-        this._pageName = 'Namecheap Administration - Banking';  
-        this._leftMenu = new AdminLeftMenu();        
+        this._pageName = 'Namecheap Administration - Banking';                
         this._pageIsDisplayed();   
     } 
     

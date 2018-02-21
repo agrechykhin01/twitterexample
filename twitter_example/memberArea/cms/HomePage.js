@@ -19,6 +19,12 @@ class HomePage extends CmsBasePage {
 
     return new DashboardPage();
   }
+
+  signOut() {
+    this._header.signOut();
+
+    return new HomePage();
+  }
 }
 
 module.exports = HomePage;

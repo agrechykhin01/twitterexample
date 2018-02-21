@@ -20,14 +20,22 @@ class ProfilePersonalInfoPage extends ApBasePage {
     return new ProfilePersonalInfoPage();
   }
 
-  changePageDataToTwitterAdded(){
-    this._handle = testData.twitterHandle01;
-    this._handleLabel = 'Twitter account linked to Namecheap account.';
-    this._handleButton = 'Refresh';
-    this._siteMessageTwitterAdded = 'Success! Your Twitter and Namecheap accounts are now linked.';
+  changePageDataToTwitterAdded(validUser) {
+    if(validUser) {
+      this._handle = testData.twitterHandle01;
+      this._handleLabel = 'Twitter account linked to Namecheap account.';
+      this._handleButton = 'Refresh';
+      this._siteMessageTwitterAdded = 'Success! Your Twitter and Namecheap accounts are now linked.';
+    }
+    else {
+      this._handle = 'No handle';
+      this._handleLabel = '[Empty]';
+      this._handleButton = 'Add handle';
+      this._siteMessageTwitterAdded = 'This twitter account is already used for another namecheap user.';
+    }
   }
 
-  twitterHandleIsAdded(){
+  twitterHandleIsAdded() {
       if(this._handleButton == 'Add handle')
       {
           console.log(`Twitter account isn't added to profile`);
@@ -58,7 +66,7 @@ class ProfilePersonalInfoPage extends ApBasePage {
   }
 
   getHandleButton() {
-    console.log(`Handle Button is: ${this._siteMessageTwitterAdded}`);
+    console.log(`Handle Button is: ${this._handleButton}`);
     return this._handleButton;
   }
 }
