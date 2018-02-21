@@ -21,7 +21,7 @@ class ProfilePersonalInfoPage extends ApBasePage {
   }
 
   changePageDataToTwitterAdded(){
-    this._handle = testData.twitterHandle;
+    this._handle = testData.twitterHandle01;
     this._handleLabel = 'Twitter account linked to Namecheap account.';
     this._handleButton = 'Refresh';
     this._siteMessageTwitterAdded = 'Success! Your Twitter and Namecheap accounts are now linked.';
